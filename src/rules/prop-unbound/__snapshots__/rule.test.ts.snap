@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`prop-unbound > invalid/no-matching-named-prop.html 1`] = `
+[
+  "2:29 error \`data-prop="title"\` never gets a value: its parent region has no \`data-prop\` and no \`data-prop-title\`
+  hint: Give the parent region a \`data-prop\` (or a \`data-prop-*\` named after this path's first key), or make this path absolute with \`@file[…]\`, \`@data[…]\` or \`@collections[…]\`.",
+]
+`;
+
+exports[`prop-unbound > invalid/parent-without-props.html 1`] = `
+[
+  "2:29 error \`data-prop="title"\` never gets a value: its parent region has no \`data-prop\` or \`data-prop-*\` attributes
+  hint: Give the parent region a \`data-prop\` (or a \`data-prop-*\` named after this path's first key), or make this path absolute with \`@file[…]\`, \`@data[…]\` or \`@collections[…]\`.",
+]
+`;

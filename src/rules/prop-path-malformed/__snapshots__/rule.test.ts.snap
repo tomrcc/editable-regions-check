@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`prop-path-malformed > invalid/empty-segment.html 1`] = `
+[
+  "2:26 error \`data-prop="hero..title"\` has an empty path segment
+  hint: Remove the stray \`.\`. Use \`data-prop=""\` on its own to bind the parent's whole value.",
+  "3:25 error \`data-prop="hero.intro."\` has an empty path segment
+  hint: Remove the stray \`.\`. Use \`data-prop=""\` on its own to bind the parent's whole value.",
+]
+`;
+
+exports[`prop-path-malformed > invalid/unclosed-reference.html 1`] = `
+[
+  "2:27 error \`data-prop="@collections[blog"\` isn't a valid @collections reference
+  hint: Write it as \`@collections[key]\` or \`@collections[key].path.to.value\`. If the key itself contains \`]\`, wrap it in more brackets, e.g. \`@collections[[key]]\`.",
+  "3:28 error \`data-prop="@data.nav.title"\` isn't a valid @data reference
+  hint: Write it as \`@data[key]\` or \`@data[key].path.to.value\`. If the key itself contains \`]\`, wrap it in more brackets, e.g. \`@data[[key]]\`.",
+]
+`;

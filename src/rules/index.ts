@@ -11,9 +11,15 @@ import type { Rule } from "./define-rule.ts";
 import imageRequiresImg from "./image-requires-img/rule.ts";
 import imageRequiresProp from "./image-requires-prop/rule.ts";
 import propAttrHyphenated from "./prop-attr-hyphenated/rule.ts";
+import propPathMalformed from "./prop-path-malformed/rule.ts";
+import propPathMissing from "./prop-path-missing/rule.ts";
+import propTargetNotFound from "./prop-target-not-found/rule.ts";
+import propUnbound from "./prop-unbound/rule.ts";
+import propValueType from "./prop-value-type/rule.ts";
 import sourceDuplicateKey from "./source-duplicate-key/rule.ts";
 import sourceRequiresKey from "./source-requires-key/rule.ts";
 import sourceRequiresPath from "./source-requires-path/rule.ts";
+import specialPropOutOfScope from "./special-prop-out-of-scope/rule.ts";
 import textInvalidType from "./text-invalid-type/rule.ts";
 import textRequiresProp from "./text-requires-prop/rule.ts";
 import unknownRegionType from "./unknown-region-type/rule.ts";
@@ -40,4 +46,12 @@ export const rules: readonly Rule[] = [
 	blockInPhrasingHost,
 	propAttrHyphenated,
 	unsupportedNamedProp,
+	// Paths
+	propPathMalformed,
+	specialPropOutOfScope,
+	propUnbound,
+	// Data
+	propTargetNotFound,
+	propPathMissing,
+	propValueType,
 ];

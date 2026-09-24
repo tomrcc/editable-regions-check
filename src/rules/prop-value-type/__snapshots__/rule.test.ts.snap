@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`prop-value-type > invalid/array-object.html 1`] = `
+[
+  "1:27 error \`data-prop="features"\` points at \`features\`, which is an object. Array regions need an array",
+]
+`;
+
+exports[`prop-value-type > invalid/collection-tags.html 1`] = `
+[
+  "1:116 error \`data-prop="tags"\` points at \`@collections[blog].*.tags\`, which is an array in \`blog/first.md\`, \`blog/second.md\`. Text regions need a string",
+]
+`;
+
+exports[`prop-value-type > invalid/image-key.html 1`] = `
+[
+  "1:28 error \`data-prop="hero"\` points at \`hero.alt\`, which is a number. Image regions need \`src\`, \`alt\` and \`title\` to be strings",
+]
+`;
+
+exports[`prop-value-type > invalid/image-string.html 1`] = `
+[
+  "1:28 error \`data-prop="logo"\` points at \`logo\`, which is a string. Image regions need an object with \`src\`, \`alt\` and \`title\`",
+]
+`;
+
+exports[`prop-value-type > invalid/text-object.html 1`] = `
+[
+  "1:26 error \`data-prop="hero"\` points at \`hero\`, which is an object. Text regions need a string",
+]
+`;

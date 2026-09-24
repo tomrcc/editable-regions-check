@@ -11,6 +11,9 @@ exports[`checkSite > reports each rule exactly once across the seeded broken sit
   "blog/index.html:11:44 block-in-phrasing-host",
   "blog/index.html:12:46 prop-attr-hyphenated",
   "blog/index.html:13:29 unsupported-named-prop",
+  "blog/index.html:14:71 prop-unbound",
+  "blog/index.html:15:29 prop-path-malformed",
+  "blog/index.html:16:47 special-prop-out-of-scope",
   "index.html:4:7 unknown-region-type",
   "index.html:5:2 text-requires-prop",
   "index.html:6:45 text-invalid-type",
@@ -21,5 +24,8 @@ exports[`checkSite > reports each rule exactly once across the seeded broken sit
   "index.html:11:2 array-requires-items",
   "index.html:12:2 array-non-item-children",
   "index.html:18:3 array-keyed-item-missing-id",
+  "index.html:20:27 prop-path-missing",
+  "index.html:21:27 prop-value-type",
+  "index.html:22:28 prop-target-not-found",
 ]
 `;

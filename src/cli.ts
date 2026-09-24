@@ -10,6 +10,8 @@ Checks the editable region markup in every .html file under <dir>.
 
 Options:
   --format <pretty|json>   Output format (default: pretty)
+  --source <dir>           Project root with cloudcannon.config.*: also check each
+                           data-prop against the page's source file and data
   --config <path>          JSON config file with rules, customRegionTypes, ignore
   --ignore <glob>          Skip matching files (repeatable)
   --max-warnings <n>       Exit with code 2 when there are more than n warnings
@@ -19,6 +21,7 @@ const { values, positionals } = parseArgs({
 	allowPositionals: true,
 	options: {
 		format: { type: "string", default: "pretty" },
+		source: { type: "string" },
 		config: { type: "string" },
 		ignore: { type: "string", multiple: true },
 		"max-warnings": { type: "string" },
@@ -40,7 +43,7 @@ if (values.format !== "pretty" && values.format !== "json") {
 const config: Config = values.config ? await loadConfig(values.config) : {};
 config.ignore = [...(config.ignore ?? []), ...(values.ignore ?? [])];
 
-const files = await checkSite({ dir, config });
+const files = await checkSite({ dir, source: values.source, config });
 const summary = summarize(files);
 const output = format(files, values.format as Format);
 if (output) {
@@ -49,7 +52,7 @@ if (output) {
 
 if (values.format === "pretty") {
 	console.error(
-		`Checked ${files.length} pages: ${summary.errors} errors, ${summary.warnings} warnings`,
+		`Checked ${files.length - (values.source ? 1 : 0)} pages: ${summary.errors} errors, ${summary.warnings} warnings`,
 	);
 }
 

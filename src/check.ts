@@ -1,9 +1,12 @@
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
+import { join, relative } from "node:path";
 import { glob } from "tinyglobby";
 import { VFile } from "vfile";
 import type { Config } from "./config.ts";
+import type { PageContent } from "./content/lookup.ts";
+import { buildSiteIndex } from "./content/site-index.ts";
 import { buildRegionTree, flattenRegions } from "./model/region-tree.ts";
+import { resolvePaths } from "./model/resolve-paths.ts";
 import { parse } from "./parse.ts";
 import type { Rule, RuleContext, Severity } from "./rules/define-rule.ts";
 import { rules as allRules } from "./rules/index.ts";
@@ -25,6 +28,8 @@ export interface CheckHtmlOptions {
 	config?: Config;
 	/** Run only these rules (defaults to all). */
 	rules?: readonly Rule[];
+	/** The site's content. Without it, `data` rules are skipped. */
+	content?: PageContent;
 }
 
 /** Check one page. Diagnostics are on the returned file's `messages`. */
@@ -34,17 +39,23 @@ export const checkHtml = (
 ): VFile => {
 	const config = options.config ?? {};
 	const file = new VFile({ path: options.path, value: html });
-	const regions = flattenRegions(
+	const allRegions = flattenRegions(
 		buildRegionTree(parse(file), {
 			customRegionTypes: config.customRegionTypes,
 		}),
-	).filter((region) => !region.ignored);
+	);
+	resolvePaths(allRegions);
+	const regions = allRegions.filter((region) => !region.ignored);
 
 	for (const { rule, severity } of activeRules(
 		options.rules ?? allRules,
 		config,
 	)) {
+		if (rule.phase === "data" && !options.content) {
+			continue;
+		}
 		const ctx: RuleContext = {
+			content: options.content,
 			report(region, reason, { hint, attribute } = {}) {
 				const place = attribute
 					? (region.attributes.attribute(attribute)?.position ??
@@ -88,12 +99,19 @@ export const checkHtml = (
 export interface CheckSiteOptions {
 	/** The built site's output directory. */
 	dir: string;
+	/** The project root holding `cloudcannon.config.*`. Enables the `data` rules. */
+	source?: string;
 	config?: Config;
 }
 
-/** Check every `.html` file under `dir`. Returns one file per page, in path order. */
+/**
+ * Check every `.html` file under `dir`. Returns one file per page, in path
+ * order. With `source`, the first file is the CloudCannon config, carrying
+ * problems found while mapping pages to their source files.
+ */
 export const checkSite = async ({
 	dir,
+	source,
 	config = {},
 }: CheckSiteOptions): Promise<VFile[]> => {
 	const paths = await glob("**/*.html", {
@@ -102,13 +120,40 @@ export const checkSite = async ({
 	});
 	paths.sort();
 
-	return Promise.all(
+	const site = source
+		? await buildSiteIndex({ projectDir: source, outputPages: paths })
+		: undefined;
+
+	const pages = await Promise.all(
 		paths.map(async (path) => {
 			const fullPath = join(dir, path);
 			return checkHtml(await readFile(fullPath, "utf8"), {
 				path: fullPath,
 				config,
+				content: site ? { site, file: site.pageFor(path) } : undefined,
 			});
 		}),
 	);
+	if (!site || !source) {
+		return pages;
+	}
+
+	const siteFile = new VFile({ path: site.configPath });
+	for (const warning of site.warnings) {
+		siteFile.message(warning, { ruleId: "site-index", source: MESSAGE_SOURCE });
+	}
+	const unmapped = paths.filter((path) => !site.pageFor(path));
+	if (unmapped.length > 0) {
+		const info = siteFile.info(
+			`${unmapped.length} of ${paths.length} pages have no source file, so paths relative to the page aren't checked against data`,
+			{ ruleId: "site-index", source: MESSAGE_SOURCE },
+		);
+		info.note = `Pages map to files through each collection's \`url\` in \`collections_config\`. Unmapped: ${unmapped
+			.slice(0, 10)
+			.map((path) => relative(".", join(dir, path)))
+			.join(
+				", ",
+			)}${unmapped.length > 10 ? `, and ${unmapped.length - 10} more` : ""}`;
+	}
+	return [siteFile, ...pages];
 };

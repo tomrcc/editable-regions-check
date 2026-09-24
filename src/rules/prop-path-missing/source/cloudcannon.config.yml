@@ -1,0 +1,11 @@
+collections_config:
+  blog:
+    path: blog
+    url: /blog/[slug]/
+data_config:
+  nav:
+    path: data/nav.json
+  team:
+    path: data/team
+  gone:
+    path: data/gone.json

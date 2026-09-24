@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`prop-target-not-found > invalid/missing-file.html 1`] = `
+[
+  "1:26 error \`@file[blog/third.md]\`: there's no file at \`blog/third.md\` in the site source
+  hint: Collection and dataset keys come from \`collections_config\` and \`data_config\` in your CloudCannon configuration. \`@file[…]\` paths are relative to the site source.",
+]
+`;
+
+exports[`prop-target-not-found > invalid/unknown-collection.html 1`] = `
+[
+  "1:27 error \`@collections[posts]\`: there's no \`posts\` in \`collections_config\`
+  hint: Collection and dataset keys come from \`collections_config\` and \`data_config\` in your CloudCannon configuration. \`@file[…]\` paths are relative to the site source.",
+]
+`;
+
+exports[`prop-target-not-found > invalid/unknown-dataset.html 1`] = `
+[
+  "2:28 error \`@data[menu]\`: there's no \`menu\` in \`data_config\`
+  hint: Collection and dataset keys come from \`collections_config\` and \`data_config\` in your CloudCannon configuration. \`@file[…]\` paths are relative to the site source.",
+  "3:28 error \`@data[gone]\`: its \`data_config\` path \`data/gone.json\` doesn't exist
+  hint: Collection and dataset keys come from \`collections_config\` and \`data_config\` in your CloudCannon configuration. \`@file[…]\` paths are relative to the site source.",
+]
+`;

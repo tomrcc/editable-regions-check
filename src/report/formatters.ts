@@ -14,7 +14,7 @@ export const summarize = (files: VFile[]): Summary => {
 		for (const message of file.messages) {
 			if (message.fatal) {
 				summary.errors += 1;
-			} else {
+			} else if (message.fatal === false) {
 				summary.warnings += 1;
 			}
 		}
@@ -33,7 +33,11 @@ const json = (files: VFile[]): string =>
 				path: file.path,
 				messages: file.messages.map((message) => ({
 					ruleId: message.ruleId,
-					severity: message.fatal ? "error" : "warn",
+					severity: message.fatal
+						? "error"
+						: message.fatal === false
+							? "warn"
+							: "info",
 					message: message.reason,
 					hint: message.note,
 					line: message.line,

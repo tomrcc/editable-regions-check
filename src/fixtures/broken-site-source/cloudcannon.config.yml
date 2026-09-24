@@ -1,0 +1,4 @@
+collections_config:
+  pages:
+    path: pages
+    url: /[full_slug]/

@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`prop-path-missing > invalid/collection-files.html 1`] = `
+[
+  "2:86 error \`data-prop-alt="cover.alt"\` points at \`@collections[blog].*.cover.alt\`, but \`blog/second.md\` has no \`alt\`
+  hint: Available keys: \`src\`",
+]
+`;
+
+exports[`prop-path-missing > invalid/dataset.html 1`] = `
+[
+  "2:28 error \`data-prop="@data[nav].items"\` points at \`@data[nav].items\`, but \`@data[nav]\` has no \`items\`
+  hint: Available keys: \`links\`",
+  "4:60 error \`data-prop="role"\` points at \`@data[team].0.role\`, which is missing in 2 files: \`data/team/ana.yml\`, \`data/team/bo.yml\`
+  hint: Available keys: \`name\`",
+]
+`;
+
+exports[`prop-path-missing > invalid/extra-array-item.html 1`] = `
+[
+  "4:2 error Array item 3 points at \`features.2\`, but \`features\` has 2 items, so there's no index 2
+  hint: The page renders more array items than the data has. Check that the template loops over this same array, and that the build is up to date.",
+]
+`;
+
+exports[`prop-path-missing > invalid/nested-key.html 1`] = `
+[
+  "2:26 error \`data-prop="subheading"\` points at \`hero.subheading\`, but \`hero\` has no \`subheading\`
+  hint: Did you mean \`heading\`? Available keys: \`heading\`, \`image\`",
+]
+`;
+
+exports[`prop-path-missing > invalid/nested-once.html 1`] = `
+[
+  "2:57 error \`data-prop="cta"\` points at \`cta\`, but the page's source file \`nested-once.md\` has no \`cta\`
+  hint: Available keys: \`title\`, \`hero\`, \`features\`, \`empty\`",
+]
+`;
+
+exports[`prop-path-missing > invalid/typo.html 1`] = `
+[
+  "1:26 error \`data-prop="Title"\` points at \`Title\`, but the page's source file \`typo.md\` has no \`Title\`
+  hint: Did you mean \`title\`? Available keys: \`title\`, \`hero\`, \`features\`, \`empty\`",
+]
+`;

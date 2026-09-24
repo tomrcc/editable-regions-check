@@ -1,3 +1,4 @@
+import type { PageContent } from "../content/lookup.ts";
 import type { RegionNode } from "../model/region-tree.ts";
 
 export type Severity = "error" | "warn";
@@ -11,6 +12,8 @@ export interface ReportOptions {
 
 export interface RuleContext {
 	report(node: RegionNode, message: string, options?: ReportOptions): void;
+	/** The site's content and this page's source file. Always set for `data` rules. */
+	content?: PageContent;
 }
 
 export interface Page {
@@ -23,8 +26,12 @@ export interface Rule {
 	id: string;
 	/** Default severity. Config can override it or turn the rule off. */
 	severity: Severity;
-	/** Which stage the rule belongs to. Later phases add "paths" and "data". */
-	phase: "structure";
+	/**
+	 * Which stage the rule belongs to: `structure` reads the markup, `paths`
+	 * reads resolved `bindings`, and `data` looks bindings up in the site's
+	 * content, so it only runs when a source directory is given.
+	 */
+	phase: "structure" | "paths" | "data";
 	/** One sentence: what the rule enforces. */
 	description: string;
 	/** Why it matters: what breaks in the Visual Editor. */

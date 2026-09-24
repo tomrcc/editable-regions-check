@@ -8,6 +8,7 @@ import {
 	ELEMENT_REGION_TYPES,
 	IGNORE_ATTRIBUTE,
 } from "./constants.ts";
+import type { Binding } from "./resolve-paths.ts";
 
 export type RegionKind = "builtin" | "custom" | "dynamic" | "unknown";
 
@@ -49,6 +50,8 @@ export interface RegionNode {
 	inTemplate: boolean;
 	/** `data-cloudcannon-ignore` on an attribute-form region: the runtime skips hydrating it. */
 	ignored: boolean;
+	/** Each `data-prop`/`data-prop-*` resolved to a full path. Filled in by `resolvePaths`. */
+	bindings: Binding[];
 }
 
 export interface RegionTreeOptions {
@@ -178,6 +181,7 @@ export const buildRegionTree = (
 				ignored:
 					classification.form === "attribute" &&
 					attributes.has(IGNORE_ATTRIBUTE),
+				bindings: [],
 			};
 
 			(parent ? parent.children : roots).push(region);

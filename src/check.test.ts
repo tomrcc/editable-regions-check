@@ -4,10 +4,11 @@ import { checkSite } from "./check.ts";
 import { rules } from "./rules/index.ts";
 
 const dir = `${import.meta.dirname}/fixtures/broken-site`;
+const source = `${import.meta.dirname}/fixtures/broken-site-source`;
 
 describe("checkSite", () => {
 	it("reports each rule exactly once across the seeded broken site", async () => {
-		const files = await checkSite({ dir });
+		const files = await checkSite({ dir, source });
 		const messages = files.flatMap((file) =>
 			file.messages.map(
 				(message) =>
@@ -18,6 +19,15 @@ describe("checkSite", () => {
 		const ruleIds = messages.map((message) => message.split(" ")[1]).sort();
 		expect(ruleIds).toEqual(rules.map((rule) => rule.id).sort());
 		expect(messages).toMatchSnapshot();
+	});
+
+	it("skips data rules without a source directory", async () => {
+		const files = await checkSite({ dir });
+		const ruleIds = files.flatMap((file) =>
+			file.messages.map((message) => message.ruleId),
+		);
+		expect(ruleIds).not.toContain("prop-path-missing");
+		expect(ruleIds).toContain("prop-path-malformed");
 	});
 
 	it("applies config severity overrides and ignores", async () => {
