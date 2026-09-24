@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`text-requires-prop > invalid/element-missing-prop.html 1`] = `
+[
+  "1:1 error Text region has no \`data-prop\` attribute
+  hint: Add \`data-prop\` with the field's path. Use \`data-prop=""\` to bind the parent's value, e.g. inside a plain-string array item.",
+]
+`;
+
+exports[`text-requires-prop > invalid/missing-prop.html 1`] = `
+[
+  "1:1 error Text region has no \`data-prop\` attribute
+  hint: Add \`data-prop\` with the field's path. Use \`data-prop=""\` to bind the parent's value, e.g. inside a plain-string array item.",
+]
+`;

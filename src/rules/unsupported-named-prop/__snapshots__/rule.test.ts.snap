@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unsupported-named-prop > invalid/array.html 1`] = `
+[
+  "1:45 error \`data-prop-heading\` turns the array region's value into an object
+  hint: Array regions only read \`data-prop\`. Point it at the field, or remove the attribute.",
+]
+`;
+
+exports[`unsupported-named-prop > invalid/image-misspelled.html 1`] = `
+[
+  "1:28 error \`data-prop-source\` isn't an image attribute
+  hint: Did you mean \`data-prop-src\`?",
+]
+`;
+
+exports[`unsupported-named-prop > invalid/image-unknown.html 1`] = `
+[
+  "2:39 error \`data-prop-width\` isn't an image attribute
+  hint: Image regions accept \`data-prop-src\`, \`data-prop-alt\` and \`data-prop-title\`.",
+  "2:69 error \`data-literal-caption\` isn't an image attribute
+  hint: Did you mean \`data-literal-alt\`?",
+]
+`;
+
+exports[`unsupported-named-prop > invalid/source.html 1`] = `
+[
+  "1:78 error \`data-prop-text\` turns the source region's value into an object
+  hint: Source regions read their value from \`data-path\` and \`data-key\`. Remove the attribute.",
+]
+`;
+
+exports[`unsupported-named-prop > invalid/text.html 1`] = `
+[
+  "2:44 error \`data-prop-subtitle\` turns the text region's value into an object
+  hint: Text regions only read \`data-prop\`. Point it at the field, or remove the attribute.",
+  "2:74 error \`data-literal-level\` turns the text region's value into an object
+  hint: Text regions only read \`data-prop\`. Point it at the field, or remove the attribute.",
+]
+`;

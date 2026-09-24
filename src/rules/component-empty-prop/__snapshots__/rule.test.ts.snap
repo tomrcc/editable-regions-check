@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`component-empty-prop > invalid/empty.html 1`] = `
+[
+  "1:43 warn Component region has an empty \`data-prop=""\`
+  hint: Point \`data-prop\` at the object holding the component's data, nesting the frontmatter under a key if needed.",
+]
+`;

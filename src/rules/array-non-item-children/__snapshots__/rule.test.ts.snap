@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`array-non-item-children > invalid/static-sibling.html 1`] = `
+[
+  "1:1 warn Array region contains a \`<div>\` that isn't an array item
+  hint: Move static content outside the array element, so every child of the array is an item.",
+]
+`;

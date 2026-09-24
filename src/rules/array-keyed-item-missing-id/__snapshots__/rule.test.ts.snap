@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`array-keyed-item-missing-id > invalid/missing.html 1`] = `
+[
+  "3:2 warn Array item has no \`data-id\` or \`data-component\`, so it can't be matched to its data
+  hint: The array matches items by each value's \`id\` field. Set \`data-id\` (or \`data-component\`) on the item to that value.",
+  "5:2 warn Array item has no \`data-id\` or \`data-component\`, so it can't be matched to its data
+  hint: The array matches items by each value's \`id\` field. Set \`data-id\` (or \`data-component\`) on the item to that value.",
+]
+`;

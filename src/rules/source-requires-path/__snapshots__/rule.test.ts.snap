@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`source-requires-path > invalid/missing.html 1`] = `
+[
+  "1:1 error Source region has no \`data-path\` attribute
+  hint: Set \`data-path\` to the source file's path from the project root, e.g. \`/src/pages/index.html\`.",
+]
+`;

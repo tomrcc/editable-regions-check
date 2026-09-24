@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`array-requires-prop > invalid/missing-prop.html 1`] = `
+[
+  "1:1 error Array region has no \`data-prop\` attribute
+  hint: Add \`data-prop\` with the array's path. Use \`data-prop=""\` when the parent's value is the array.",
+]
+`;

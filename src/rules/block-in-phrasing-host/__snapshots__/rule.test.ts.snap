@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`block-in-phrasing-host > invalid/p.html 1`] = `
+[
+  "1:42 warn \`data-type="block"\` region is on a \`<p>\`, which can't contain block content
+  hint: Use a \`<div>\` (or another block container) as the host, or \`data-type="text"\` for single-paragraph rich text.",
+]
+`;

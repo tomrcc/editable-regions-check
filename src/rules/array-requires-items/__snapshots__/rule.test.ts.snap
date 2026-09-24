@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`array-requires-items > invalid/empty.html 1`] = `
+[
+  "1:1 error Array region has no array items and no way to create one
+  hint: Add \`data-editable="array-item"\` to each item, or add a \`<template>\` holding one item's markup for arrays that can be empty.",
+]
+`;
+
+exports[`array-requires-items > invalid/items-not-marked.html 1`] = `
+[
+  "1:1 error Array region has no array items and no way to create one
+  hint: Add \`data-editable="array-item"\` to each item, or add a \`<template>\` holding one item's markup for arrays that can be empty.",
+]
+`;

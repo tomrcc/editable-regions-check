@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`image-requires-prop > invalid/no-props.html 1`] = `
+[
+  "1:1 error Image region has no \`data-prop\` or \`data-prop-src\`/\`-alt\`/\`-title\` attribute
+  hint: Use \`data-prop\` for an object with \`src\`/\`alt\`/\`title\` keys, or \`data-prop-src\` (and \`-alt\`, \`-title\`) for separate fields.",
+]
+`;

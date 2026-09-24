@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`image-requires-img > invalid/no-img.html 1`] = `
+[
+  "1:1 error Image region has no \`<img>\` element
+  hint: Put the region on the \`<img>\`, or on an element that contains it.",
+]
+`;

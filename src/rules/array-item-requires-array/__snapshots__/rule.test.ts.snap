@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`array-item-requires-array > invalid/component-between.html 1`] = `
+[
+  "3:3 error Array item's nearest parent region is \`component\`, not \`array\`
+  hint: Wrap the items in an element with \`data-editable="array"\` and a \`data-prop\` for the array.",
+]
+`;
+
+exports[`array-item-requires-array > invalid/double-nested.html 1`] = `
+[
+  "3:3 error Array item's nearest parent region is \`array-item\`, not \`array\`
+  hint: This looks like double nesting. Keep the \`array-item\` in the page template and remove it from the component's output.",
+]
+`;
+
+exports[`array-item-requires-array > invalid/no-array.html 1`] = `
+[
+  "2:2 error Array item is not inside an array region
+  hint: Wrap the items in an element with \`data-editable="array"\` and a \`data-prop\` for the array.",
+]
+`;

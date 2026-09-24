@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`value-region-has-children > invalid/text-in-text.html 1`] = `
+[
+  "2:2 warn \`text\` region is nested inside a \`text\` region
+  hint: Move the \`text\` region onto an element that holds only its own value.",
+]
+`;

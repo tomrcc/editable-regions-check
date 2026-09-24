@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`source-requires-key > invalid/missing.html 1`] = `
+[
+  "1:1 error Source region has no \`data-key\` attribute
+  hint: Add a \`data-key\` that is unique within the source file, e.g. \`hero-title\`.",
+]
+`;

@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`checkSite > reports each rule exactly once across the seeded broken site 1`] = `
+[
+  "blog/index.html:4:2 component-requires-component",
+  "blog/index.html:5:44 component-empty-prop",
+  "blog/index.html:6:2 source-requires-path",
+  "blog/index.html:7:2 source-requires-key",
+  "blog/index.html:9:52 source-duplicate-key",
+  "blog/index.html:10:63 value-region-has-children",
+  "blog/index.html:11:44 block-in-phrasing-host",
+  "blog/index.html:12:46 prop-attr-hyphenated",
+  "blog/index.html:13:29 unsupported-named-prop",
+  "index.html:4:7 unknown-region-type",
+  "index.html:5:2 text-requires-prop",
+  "index.html:6:45 text-invalid-type",
+  "index.html:7:2 image-requires-img",
+  "index.html:8:2 image-requires-prop",
+  "index.html:9:2 array-requires-prop",
+  "index.html:10:2 array-item-requires-array",
+  "index.html:11:2 array-requires-items",
+  "index.html:12:2 array-non-item-children",
+  "index.html:18:3 array-keyed-item-missing-id",
+]
+`;

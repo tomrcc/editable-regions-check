@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`source-duplicate-key > invalid/duplicate.html 1`] = `
+[
+  "2:50 error \`data-key="title"\` is used more than once for /index.html
+  hint: The first use is on line 1. Give each source region in a file its own key.",
+]
+`;

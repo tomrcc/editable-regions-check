@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unknown-region-type > invalid/unknown-attribute-type.html 1`] = `
+[
+  "1:6 error "content" is not a valid \`data-editable\` type
+  hint: Valid types are "array", "array-item", "component", "image", "source", "text". If this is intentional, add \`data-cloudcannon-ignore\` or register it in \`customRegionTypes\`.",
+]
+`;
+
+exports[`unknown-region-type > invalid/unknown-element.html 1`] = `
+[
+  "1:1 error \`<editable-heading>\` is not an editable region element
+  hint: Elements starting with \`editable-\` are treated as editable regions. Rename the element if it isn't one.",
+]
+`;

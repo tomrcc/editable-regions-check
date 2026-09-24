@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`component-requires-component > invalid/empty.html 1`] = `
+[
+  "1:1 error Component region has no \`data-component\` attribute
+  hint: Set \`data-component\` to the key the component is registered under.",
+]
+`;
+
+exports[`component-requires-component > invalid/missing.html 1`] = `
+[
+  "1:1 error Component region has no \`data-component\` attribute
+  hint: Set \`data-component\` to the key the component is registered under.",
+]
+`;

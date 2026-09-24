@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`text-invalid-type > invalid/rich.html 1`] = `
+[
+  "1:44 error "rich" is not a valid \`data-type\`
+  hint: Use \`span\` for plain text, \`text\` for inline rich text, or \`block\` for multi-paragraph rich text.",
+]
+`;
