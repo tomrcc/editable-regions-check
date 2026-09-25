@@ -16,6 +16,13 @@ describe("evaluateUrlTemplate", () => {
 		["/[slug]/", "content/pages/about.md", "about.md", "/about/"],
 		["/[slug]/", "content/pages/index.md", "index.md", "/"],
 		["/[full_slug]/", "pages/index.md", "index.md", "/"],
+		["/[full_slug]/", "content/_index.md", "_index.md", "/"],
+		[
+			"/[full_slug]/",
+			"content/privacy/_index.md",
+			"privacy/_index.md",
+			"/privacy/",
+		],
 		[
 			"/[full_slug]/",
 			"pages/contact/index.md",

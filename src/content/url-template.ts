@@ -29,7 +29,8 @@ const joinParts = (...parts: string[]) =>
 const fixedPlaceholders = (file: UrlTemplateFile): Record<string, string> => {
 	const filename = posix.basename(file.path);
 	const base = stripExt(filename);
-	const slug = base === "index" ? "" : base;
+	// Hugo's section and home pages are `_index.md`, which CloudCannon treats like `index`.
+	const slug = base === "index" || base === "_index" ? "" : base;
 	const relativeDir = posix.dirname(file.relativePath);
 	return {
 		filename,
